@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPIR</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:red;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    opacity:0;
+    transition:1s;
+}
+
+.show{
+    opacity:1;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    background:black;
+    color:red;
+    border:1px solid red;
+    cursor:pointer;
+}
+
+button:hover{
+    background:red;
+    color:black;
+}
+
+.main{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    padding:20px;
+}
+
+.line{
+    color:red;
+}
+
+.copy{
+    cursor:pointer;
+}
+
+input{
+    background:black;
+    border:1px solid red;
+    color:red;
+    padding:8px;
+    margin-top:10px;
+    text-align:center;
+}
+
+#notif{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+#ezBanPage{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO 1 -->
+<div class="container" id="page1">
+    <h1>Welcome Bro's</h1>
+    <button onclick="nextPage(1)">Next →</button>
+</div>
+
+<!-- INTRO 2 -->
+<div class="container" id="page2" style="display:none;">
+    <h2>Olá bro, bem-vindo ao meu site, que é o site Report Player no Roblox ou que eu chamei de RPIR.</h2>
+    <button onclick="nextPage(2)">Next →</button>
+</div>
+
+<!-- MAIN PAGE -->
+<div class="main" id="mainPage">
+    <h1>RPIR</h1>
+    <h3>Report Player In Roblox</h3>
+    <div class="line">———————————————</div>
+
+    <div class="copy" onclick="copyText('I want to report this player for scamming. They've been trying to trick others for personal gain. Please review their account and take action, including possible account suspension or termination. Thanks for your help!')">Scamming</div>
+    <div class="copy" onclick="copyText('This player is engaging in inappropriate behavior (dating/18+) that violates Roblox community guidelines. Please review and take action to protect younger users. Thanks!')">Datting/sex</div>
+    <div class="copy" onclick="copyText('This player is suspected of cheating. They seem to have abilities or behaviors that aren't normal, like infinite health or teleporting. Please investigate and take necessary actions.')">Cheating</div>
+    <div class="copy" onclick="copyText('This player has an inappropriate username that violates Roblox community guidelines. Please review and take action, such as warning or changing the username. Thanks!')">Username</div>
+    <div class="copy" onclick="copyText('This player is sharing off-platform links that violate Roblox community guidelines. Please review and take action to prevent potential scams or harm. Thanks!')">Off-platform links</div>
+    <div class="copy" onclick="copyText('This player is sharing personal information that violates Roblox community guidelines. Please review and take action to protect their privacy. Thanks!')">Personal information</div>
+    <div class="copy" onclick="copyText('text 7')">Bullying</div>
+
+    <div class="line">———————————————</div>
+
+    <div>Telegram : @DebbNotDev</div>
+    <div>Creator : Debb7Xnote</div>
+
+    <div class="line">———————————————</div>
+
+    <button onclick="openEzBan()">...</button>
+
+    <div id="notif"></div>
+</div>
+
+<!-- EZ BAN PAGE -->
+<div id="ezBanPage"></div>
+
+<script>
+
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById("page1").classList.add("show");
+    }, 200);
+};
+
+function nextPage(step){
+    if(step === 1){
+        document.getElementById("page1").classList.remove("show");
+        setTimeout(() => {
+            document.getElementById("page1").style.display="none";
+            document.getElementById("page2").style.display="block";
+            setTimeout(()=>{
+                document.getElementById("page2").classList.add("show");
+            },100);
+        },1000);
+    }
+
+    if(step === 2){
+        document.getElementById("page2").classList.remove("show");
+        setTimeout(() => {
+            document.getElementById("page2").style.display="none";
+            document.body.style.overflow="auto";
+            document.body.style.height="auto";
+            document.getElementById("mainPage").style.display="flex";
+        },1000);
+    }
+}
+
+function copyText(text){
+    navigator.clipboard.writeText(text);
+    document.getElementById("notif").innerText = "Sudah disalin Bro, lanjutkan aksimu🔥";
+}
+
+function openEzBan(){
+    document.getElementById("mainPage").style.display="none";
+    document.getElementById("ezBanPage").style.display="flex";
+    document.getElementById("ezBanPage").innerHTML = `
+        <h3>Enter your target Roblox username</h3>
+        <input type="text" id="targetUsername" placeholder="Username">
+        <br>
+        <button onclick="generateEzBan()">Submit</button>
+    `;
+}
+
+function generateEzBan(){
+    const name = document.getElementById("targetUsername").value;
+
+    document.getElementById("ezBanPage").innerHTML = `
+    <div class="line">————————————————</div>
+    <div><b>𝐄𝐳 𝐁𝐚𝐧 𝐰𝐤𝐰𝐤𝐰𝐤</b></div>
+    <div>Name : ${name}</div>
+    <div>𝐃𝐮𝐡 𝐚𝐝𝐮𝐡😹 𝐊𝐨𝐤 𝐤𝐞 𝐛𝐚𝐧 𝐜𝐮𝐧𝐠?</div>
+    <div>𝐀𝐝𝐮𝐡 𝐬𝐢 𝐡𝐚𝐦𝐚 𝐤𝐞 𝐛𝐚𝐧 𝐚𝐰𝐨𝐤𝐚𝐰𝐨𝐤</div>
+    <div>𝐄𝐳 𝐛𝐚𝐧 𝐜𝐮𝐧𝐠 𝐤𝐚𝐜𝐮𝐧𝐠</div>
+    <div>#𝐤𝐚𝐜𝐮𝐧𝐠𝐣𝐢𝐞𝐫𝐫</div>
+    <div>#ɪᴢɪɴɴɴ</div>
+    <div>#𝐆𝐀𝐂𝐎𝐑𝐊𝐄𝐓𝐔𝐀</div>
+    <div>#𝑫𝒆𝒃𝒃𝟕𝑿𝒂𝒏𝒈𝒆𝒍</div>
+    <div class="line">————————————————</div>
+    <button onclick="location.reload()">Back</button>
+    `;
+}
+
+</script>
+
+</body>
+</html>
